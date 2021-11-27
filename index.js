@@ -22,11 +22,24 @@ addBtn.addEventListener('click', function() {
 });
 
 
-function Book(title, author, pages, isRead) {
+/* function Book(title, author, pages, isRead) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
+} */
+
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
+
+    info() {
+        return `${this.title} was wrriten by ${this.author}, it has ${this.pages} pages and is ${this.isRead? 'already' : 'not yet'} read.`;
+    };
 }
 
 
@@ -83,9 +96,7 @@ function renderBooks() {
     });
 }
 
-Book.prototype = Object.create({info: function() {
-    return `${this.title} was wrriten by ${this.author}, it has ${this.pages} pages and is ${this.isRead? 'already' : 'not yet'} read.`;
-}} ,{});
+
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
